@@ -1,17 +1,12 @@
 // Start Head Scripts
 
-// Start Scripts src
-<script src='https://code.jquery.com/jquery-3.5.1.min.js'/>
-// End Scripts src
-
 // Start Settings Of Posts Images And Posts Titles And Posts Summary
-<script type='text/javascript'>
 posts_no_thumb_sum = 200;
 posts_thumb_sum = 120;
 img_thumb_height = 195;
 img_thumb_width = 290;
-</script>
-<script type='text/javascript'>
+
+
 //<![CDATA[
 function removeHtmlTag(strx, chop) {
     if (strx.indexOf("<") != -1) {
@@ -43,11 +38,9 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
     div.innerHTML = summary;
 }
 //]]>
-</script>
 // End Settings Of Posts Images And Posts Titles And Posts Summary
 
 // Start SliderShow
-<script>
 //<![CDATA[
 // SliderShow
 (function(e) {
@@ -362,12 +355,11 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
 // End Nivo Slider jQuery Script
 // SliderShow
 /*]]>*/
-</script>
 // End SliderShow
   
 // Start SliderShow
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'/>
-<script>
+
 //<![CDATA[
 // SliderShow
 // Start Nivo Slider Script Control
@@ -430,22 +422,19 @@ $.noConflict();
 // End Nivo Slider Script Control
 // SliderShow
 /*]]>*/
-</script>
 // End SliderShow
 
 // Start Google Analytics Stats Tracking
 <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-5V67BV8PBK'/>
-<script>
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag(&#39;js&#39;, new Date());
 
   gtag(&#39;config&#39;, &#39;G-5V67BV8PBK&#39;);
-</script>
 // End Google Analytics Stats Tracking
-  
+
 // Start Ads In Posts From In Layout
-<script type='text/javascript'>
 /*<![CDATA[*/
 $(function() {
     "use strict";
@@ -455,7 +444,6 @@ $(function() {
     $(".post-body *:eq(" + _0x8468x0 + ")")["after"]($("#HTML202"));
 });
 /*]]>*/
-</script>
 // End Ads In Posts From In Layout
 
 // End Head Scripts
