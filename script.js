@@ -1,12 +1,18 @@
 // Start Head Scripts
 
-// Start Posts Settings And Programming Posts And Links And Content Inside The Posts And Display Post Images And Others
-// Settings Of Posts Images And Posts Titles And Posts Summary
+// Start Scripts src
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'/>
+// End Scripts src
+
+// Start Settings Of Posts Images And Posts Titles And Posts Summary
+<script type='text/javascript'>
 posts_no_thumb_sum = 200;
 posts_thumb_sum = 120;
 img_thumb_height = 195;
 img_thumb_width = 290;
-
+</script>
+<script type='text/javascript'>
+//<![CDATA[
 function removeHtmlTag(strx, chop) {
     if (strx.indexOf("<") != -1) {
         var s = strx.split("<");
@@ -33,13 +39,17 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
         summ = posts_thumb_sum;
     }
 
-    var summary = imgtag + '<div class="post-info"><div class="post-title"><a href="' + pURL + '">' + pTITLE + '</a></div></div><div class="post-summary">' + removeHtmlTag(div.innerHTML, summ) + '</div>';
+    var summary = imgtag + '<div class="post-info"><div class="post-title"><a href="' + pURL + '">' + pTITLE.substring(0, 68) + "..." + '</a></div></div><div class="post-summary">' + removeHtmlTag(div.innerHTML, summ).substring(0, 78) + "... " + "إفتح المقال لقراءة المزيد." + '</div>';
     div.innerHTML = summary;
 }
-// Settings Of Posts Images And Posts Titles And Posts Summary
+//]]>
+</script>
+// End Settings Of Posts Images And Posts Titles And Posts Summary
 
-
-
+// Start SliderShow
+<script>
+//<![CDATA[
+// SliderShow
 (function(e) {
     var t = function(t, n) {
         var i = e.extend({}, e.fn.nivoSlider.defaults, n),
@@ -47,9 +57,9 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
                 currentSlide: 0,
                 currentImage: "",
                 totalSlides: 0,
-                running: !1,
+                running: !1, // !1 = Enable Control Buttons | !0 = Disable Control Buttons
                 paused: !1,
-                stop: !1,
+                stop: !1, // !1 = Enable Autoplay | !0 = Disable Autoplay
                 controlNavEl: !1
             },
             o = e(t);
@@ -339,8 +349,8 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
         controlNavThumbs: !1,
         pauseOnHover: !0,
         manualAdvance: !1,
-        prevText: "Prev",
-        nextText: "Next",
+        prevText: "السابق",
+        nextText: "التالى",
         randomStart: !1,
         beforeChange: function() {},
         afterChange: function() {},
@@ -349,9 +359,18 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
         afterLoad: function() {}
     }, e.fn._reverse = [].reverse
 })(jQuery);
-
-
-
+// End Nivo Slider jQuery Script
+// SliderShow
+/*]]>*/
+</script>
+// End SliderShow
+  
+// Start SliderShow
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'/>
+<script>
+//<![CDATA[
+// SliderShow
+// Start Nivo Slider Script Control
 $(function() {
     $(".recent-slider").each(function() {
         $(this).append("<div id=\"slider\"></div>");
@@ -359,7 +378,7 @@ $(function() {
             f = $(this);
         $.ajax({
             type: "GET",
-            url: "/feeds/posts/summary/-/" + a + "?max-results=" + 10 + "&alt=json-in-script",
+            url: "/feeds/posts/summary/-/" + a + "?max-results=" + 5 + "&alt=json-in-script", // Number Of Posts Shown
             async: !0,
             contentType: "application/json",
             dataType: "jsonp",
@@ -370,43 +389,64 @@ $(function() {
                             var q = k.link[m].href;
                             break
                         } try {
-                        var t = k.media$thumbnail.url.replace("s72-c", "h300-w1200-no")
+                        var t = k.media$thumbnail.url.replace('s72', 's300')
                     } catch (y) {
                         var t = "https://lh3.googleusercontent.com/24RAodFW8xxgzHpVBAthJHsf_szjRoa3-KzlAEdFgB6X6A5Gmlm-nCvt5nRkE95T52PmHSE4Mf5wvNGoRUgIXjjHi4PjiucY3RimpoVdiTPKQN5Jdj2n9-9bW0wUSzQcirYstqGO8Unv5v7RMU5JD_Q-lEuBgtUfXEmHxOs6ENvJBanzORTRCVXwSzYNRJxijualu8mHhR5S6DG8l4CIo6uADoudrzXGsz7oszRXccZK_FbasxG5xJ9O0mtPuIVavRO8Or89er61NiJIctiUWV0YqtMMOqK214VSjs8-lAx_7LmkneNOrkP7NdXvGTK0fxHgRBiHL7Tm2weLM33LjyMEzY4ygL68Hx81iJK4D-YRmUa8NJhpEKs8q93jgjwJ3ZrgDSzn2pKI-y3c5VWrYf-H38_lWOIMf7uuTOzKUOqoQYZLN8bhFYVyB4bLUwfX0gDtTT38QsV6MILDBQZl6gHQrHt1C8Lpp9EZ0x-1Vl2r2HeKlXS60iuRKZdfSWZNbibE2y9GCfdbBzRUGa-G3GRkQstDu2UBtNOo6WHZ4GI=w600-h250-no"
                     }
-                    var v = k.title.$t,
-                        w = k.summary.$t.substr(0, 180);
+                    var v = k.title.$t.substr(0, 55) + "...", // Title Number Of Characters
+                        w = k.summary.$t.substr(0, 65) + "..."; // Description Number Of Characters
                     f.find("#slider").append("<a href=\"" + q + "\"><img src=\"" + t + "\" title=\"<a href='" + q + "'><h3>" + v + "</h3></a><p>" + w + "</p>\"/></a>")
                 }
                 $("#slider").nivoSlider({
-                    effect: "random",
+                    effect: "slideInRight",
+                  
+                    /*
+                    To Change The Effect Choose One Of The
+                    sliceDown
+                    sliceDownLeft
+                    sliceUp
+                    sliceUpLeft
+                    sliceUpDown
+                    sliceUpDownLeft
+                    fold
+                    fade
+                    random
+                    slideInRight
+                    slideInLeft
+                    boxRandom
+                    boxRain
+                    boxRainReverse
+                    boxRainGrow
+                    boxRainGrowReverse
+                    */
+
                     pauseTime: 5e3
                 })
             }
         })
     })
+$.noConflict();
 });
-// End Posts Settings And Programming Posts And Links And Content Inside The Posts And Display Post Images And Others
+// End Nivo Slider Script Control
+// SliderShow
+/*]]>*/
+</script>
+// End SliderShow
 
-
-
-
-
-
-// Google Analytics Stats Tracking
+// Start Google Analytics Stats Tracking
+<script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-5V67BV8PBK'/>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  gtag(&#39;js&#39;, new Date());
 
-  gtag('config', 'G-5V67BV8PBK');
-// Google Analytics Stats Tracking
-
-
-
-
-
-
-// Ads In Posts From In Layout
+  gtag(&#39;config&#39;, &#39;G-5V67BV8PBK&#39;);
+</script>
+// End Google Analytics Stats Tracking
+  
+// Start Ads In Posts From In Layout
+<script type='text/javascript'>
+/*<![CDATA[*/
 $(function() {
     "use strict";
     $("#postAD-top")["append"]($("#HTML201"));
@@ -414,6 +454,8 @@ $(function() {
     var _0x8468x0 = Math["floor"]($(".post-body *")["length"] / 2);
     $(".post-body *:eq(" + _0x8468x0 + ")")["after"]($("#HTML202"));
 });
-// Ads In Posts From In Layout
+/*]]>*/
+</script>
+// End Ads In Posts From In Layout
 
 // End Head Scripts
