@@ -6,8 +6,6 @@ posts_thumb_sum = 120;
 img_thumb_height = 195;
 img_thumb_width = 290;
 
-
-//<![CDATA[
 function removeHtmlTag(strx, chop) {
     if (strx.indexOf("<") != -1) {
         var s = strx.split("<");
@@ -37,12 +35,9 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
     var summary = imgtag + '<div class="post-info"><div class="post-title"><a href="' + pURL + '">' + pTITLE.substring(0, 68) + "..." + '</a></div></div><div class="post-summary">' + removeHtmlTag(div.innerHTML, summ).substring(0, 78) + "... " + "إفتح المقال لقراءة المزيد." + '</div>';
     div.innerHTML = summary;
 }
-//]]>
 // End Settings Of Posts Images And Posts Titles And Posts Summary
 
 // Start SliderShow
-//<![CDATA[
-// SliderShow
 (function(e) {
     var t = function(t, n) {
         var i = e.extend({}, e.fn.nivoSlider.defaults, n),
@@ -353,13 +348,9 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
     }, e.fn._reverse = [].reverse
 })(jQuery);
 // End Nivo Slider jQuery Script
-// SliderShow
-/*]]>*/
 // End SliderShow
   
 // Start SliderShow
-//<![CDATA[
-// SliderShow
 // Start Nivo Slider Script Control
 $(function() {
     $(".recent-slider").each(function() {
@@ -418,22 +409,16 @@ $(function() {
 $.noConflict();
 });
 // End Nivo Slider Script Control
-// SliderShow
-/*]]>*/
 // End SliderShow
 
 // Start Google Analytics Stats Tracking
-<script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-5V67BV8PBK'/>
-
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag(&#39;js&#39;, new Date());
-
   gtag(&#39;config&#39;, &#39;G-5V67BV8PBK&#39;);
 // End Google Analytics Stats Tracking
 
 // Start Ads In Posts From In Layout
-/*<![CDATA[*/
 $(function() {
     "use strict";
     $("#postAD-top")["append"]($("#HTML201"));
@@ -441,7 +426,6 @@ $(function() {
     var _0x8468x0 = Math["floor"]($(".post-body *")["length"] / 2);
     $(".post-body *:eq(" + _0x8468x0 + ")")["after"]($("#HTML202"));
 });
-/*]]>*/
 // End Ads In Posts From In Layout
 
 // End Head Scripts
