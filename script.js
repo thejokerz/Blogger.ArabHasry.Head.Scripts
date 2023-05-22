@@ -358,8 +358,6 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
 // End SliderShow
   
 // Start SliderShow
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'/>
-
 //<![CDATA[
 // SliderShow
 // Start Nivo Slider Script Control
