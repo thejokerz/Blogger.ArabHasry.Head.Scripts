@@ -352,6 +352,7 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
 
 // Start SliderShow
 // Start Nivo Slider Script Control
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'/>
 $(function() {
     $(".recent-slider").each(function() {
         $(this).append("<div id=\"slider\"></div>");
