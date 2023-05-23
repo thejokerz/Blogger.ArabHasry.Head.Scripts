@@ -349,7 +349,7 @@ function createSummaryAndThumb(pID, pURL, pTITLE) {
 })(jQuery);
 // End Nivo Slider jQuery Script
 // End SliderShow
-  
+
 // Start SliderShow
 // Start Nivo Slider Script Control
 $(function() {
@@ -410,22 +410,5 @@ $.noConflict();
 });
 // End Nivo Slider Script Control
 // End SliderShow
-
-// Start Google Analytics Stats Tracking
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag(&#39;js&#39;, new Date());
-  gtag(&#39;config&#39;, &#39;G-5V67BV8PBK&#39;);
-// End Google Analytics Stats Tracking
-
-// Start Ads In Posts From In Layout
-$(function() {
-    "use strict";
-    $("#postAD-top")["append"]($("#HTML201"));
-    $("#postAD-bottom")["append"]($("#HTML203"));
-    var _0x8468x0 = Math["floor"]($(".post-body *")["length"] / 2);
-    $(".post-body *:eq(" + _0x8468x0 + ")")["after"]($("#HTML202"));
-});
-// End Ads In Posts From In Layout
 
 // End Head Scripts
